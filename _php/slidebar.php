@@ -1,10 +1,11 @@
+<?php 
+if (!isset($spotlightAnimes)) {
+    return;
+}
+?>
 <div class="swiper-wrapper">
     <?php 
-        $json = file_get_contents("$api/api/v2/hianime/home");
-        $json = json_decode($json, true);
-        $spotlightAnimes = $json['data']['spotlightAnimes'];
-        
-        foreach($spotlightAnimes as $anime) { ?>
+    foreach($spotlightAnimes as $anime) { ?>
     <div class="swiper-slide">
         <div class="deslide-item">
             <div class="deslide-cover">

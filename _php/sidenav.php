@@ -1,12 +1,51 @@
 <?php 
-// Use the full API endpoint for home data
-$apiHome = "$api/api/v2/hianime/home";
-$json = file_get_contents($apiHome);
-$json = json_decode($json, true);
-$genres = $json['data']['genres'];
-$top10Today = $json['data']['top10Animes']['today'];
-$top10Week = $json['data']['top10Animes']['week'];
-$top10Month = $json['data']['top10Animes']['month'];
+if (!isset($genres, $top10Today, $top10Week, $top10Month)) {
+    return;
+}
+
+ $genreMap = [
+    "Action" => "action",
+    "Adventure" => "adventure",
+    "Cars" => "cars",
+    "Comedy" => "comedy",
+    "Dementia" => "dementia",
+    "Demons" => "demons",
+    "Drama" => "drama",
+    "Ecchi" => "ecchi",
+    "Fantasy" => "fantasy",
+    "Game" => "game",
+    "Harem" => "harem",
+    "Historical" => "historical",
+    "Horror" => "horror",
+    "Isekai" => "isekai",
+    "Josei" => "josei",
+    "Kids" => "kids",
+    "Magic" => "magic",
+    "Martial Arts" => "martial+arts",
+    "Mecha" => "mecha",
+    "Military" => "military",
+    "Music" => "music",
+    "Mystery" => "mystery",
+    "Parody" => "parody",
+    "Police" => "police",
+    "Psychological" => "psychological",
+    "Romance" => "romance",
+    "Samurai" => "samurai",
+    "School" => "school",
+    "Sci-Fi" => "sci-fi",
+    "Seinen" => "seinen",
+    "Shoujo" => "shoujo",
+    "Shoujo Ai" => "shoujo+ai",
+    "Shounen" => "shounen",
+    "Shounen Ai" => "shounen+ai",
+    "Slice of Life" => "slice+of+life",
+    "Space" => "space",
+    "Sports" => "sports",
+    "Super Power" => "super+power",
+    "Supernatural" => "supernatural",
+    "Thriller" => "thriller",
+    "Vampire" => "vampire"
+];
 ?>
 
 <div id="main-sidebar">
@@ -21,50 +60,6 @@ $top10Month = $json['data']['top10Animes']['month'];
             <div class="cbox cbox-genres">
                 <ul class="ulclear color-list sb-genre-list sb-genre-less">
                     <?php 
-                    $genreMap = [
-                        "Action" => "action",
-                        "Adventure" => "adventure",
-                        "Cars" => "cars",
-                        "Comedy" => "comedy",
-                        "Dementia" => "dementia",
-                        "Demons" => "demons",
-                        "Drama" => "drama",
-                        "Ecchi" => "ecchi",
-                        "Fantasy" => "fantasy",
-                        "Game" => "game",
-                        "Harem" => "harem",
-                        "Historical" => "historical",
-                        "Horror" => "horror",
-                        "Isekai" => "isekai",
-                        "Josei" => "josei",
-                        "Kids" => "kids",
-                        "Magic" => "magic",
-                        "Martial Arts" => "martial+arts",
-                        "Mecha" => "mecha",
-                        "Military" => "military",
-                        "Music" => "music",
-                        "Mystery" => "mystery",
-                        "Parody" => "parody",
-                        "Police" => "police",
-                        "Psychological" => "psychological",
-                        "Romance" => "romance",
-                        "Samurai" => "samurai",
-                        "School" => "school",
-                        "Sci-Fi" => "sci-fi",
-                        "Seinen" => "seinen",
-                        "Shoujo" => "shoujo",
-                        "Shoujo Ai" => "shoujo+ai",
-                        "Shounen" => "shounen",
-                        "Shounen Ai" => "shounen+ai",
-                        "Slice of Life" => "slice+of+life",
-                        "Space" => "space",
-                        "Sports" => "sports",
-                        "Super Power" => "super+power",
-                        "Supernatural" => "supernatural",
-                        "Thriller" => "thriller",
-                        "Vampire" => "vampire"
-                    ];
-                    
                     foreach ($genres as $genre) { 
                         $slug = strtolower(str_replace(' ', '+', $genre));
                         $slug = $genreMap[$genre] ?? $slug;
@@ -98,7 +93,6 @@ $top10Month = $json['data']['top10Animes']['month'];
             <div class="cbox cbox-list cbox-realtime">
                 <div class="cbox-content">
                     <div class="tab-content">
-                        <!-- Today Tab -->
                         <div id="today" class="anif-block-ul anif-block-chart tab-pane active">
                             <ul class="ulclear">
                                 <?php foreach ($top10Today as $key => $anime) { ?>
@@ -131,7 +125,6 @@ $top10Month = $json['data']['top10Animes']['month'];
                             </ul>
                         </div>
                         
-                        <!-- Week Tab -->
                         <div id="week" class="anif-block-ul anif-block-chart tab-pane">
                             <ul class="ulclear">
                                 <?php foreach ($top10Week as $key => $anime) { ?>
@@ -164,7 +157,6 @@ $top10Month = $json['data']['top10Animes']['month'];
                             </ul>
                         </div>
                         
-                        <!-- Month Tab -->
                         <div id="month" class="anif-block-ul anif-block-chart tab-pane">
                             <ul class="ulclear">
                                 <?php foreach ($top10Month as $key => $anime) { ?>

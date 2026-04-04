@@ -1,3 +1,9 @@
+<?php 
+if (!isset($trendingAnimes)) {
+    return;
+}
+ $top10 = array_slice($trendingAnimes, 0, 10);
+?>
 <div id="anime-trending">
     <div class="container">
         <section class="block_area block_area_trending">
@@ -12,14 +18,7 @@
                     <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
                         <div class="swiper-wrapper">
                             <?php 
-                                $json = file_get_contents("$api/api/v2/hianime/home");
-                                $json = json_decode($json, true);
-                                $trendingAnimes = $json['data']['trendingAnimes'];
-                                
-                                // Limiting to top 10 entries
-                                $top10 = array_slice($trendingAnimes, 0, 10);
-                                
-                                foreach($top10 as $key => $anime) { ?>
+                            foreach($top10 as $key => $anime) { ?>
                             <div class="swiper-slide">
                                 <div class="item">
                                     <div class="number">
@@ -48,8 +47,7 @@
                             aria-label="Next slide" aria-disabled="true"><i class="fas fa-angle-right"></i>
                         </div>
                         <div class="navi-prev swiper-button-disabled" tabindex="-1" role="button"
-                            aria-label="Previous slide" aria-disabled="true"><i class="fas fa-angle-left"></i>
-                        </div>
+                            aria-label="Previous slide" aria-disabled="true"><i class="fas fa-angle-left"></i></div>
                     </div>
                 </div>
             </div>

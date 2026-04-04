@@ -1,28 +1,34 @@
 <?php 
 session_start();
 require('./_config.php');
-$apiHome = "$api/api/v2/hianime/home";
-$json = file_get_contents($apiHome);
-$json = json_decode($json, true);
-$topAiringAnimes = $json['data']['topAiringAnimes'];
-$mostPopularAnimes = $json['data']['mostPopularAnimes'];
-$mostFavoriteAnimes = $json['data']['mostFavoriteAnimes'];
-$latestCompletedAnimes = $json['data']['latestCompletedAnimes'];
-$latestEpisodeAnimes = $json['data']['latestEpisodeAnimes'];
 
-$currentDate = date('Y-m-d');
-$scheduleData = [];
-for ($i = -1; $i <= 6; $i++) {
-    $date = date('Y-m-d', strtotime("{$i} day", strtotime($currentDate)));
-    $scheduleUrl = "$api/api/v2/hianime/schedule?date={$date}";
-    $scheduleJson = @file_get_contents($scheduleUrl);
-    if ($scheduleJson !== false) {
-        $data = json_decode($scheduleJson, true);
-        if (isset($data['data']['scheduledAnimes'])) {
-            $scheduleData[$date] = $data['data']['scheduledAnimes'];
-        }
-    }
+ $apiHome = "$api/api/v2/hianime/home";
+ $context = stream_context_create([
+    'http' => [
+        'timeout' => 10,
+        'method' => 'GET',
+        'header' => 'Accept: application/json'
+    ]
+]);
+ $json = @file_get_contents($apiHome, false, $context);
+if ($json === false) {
+    die("API temporarily unavailable. Please try again.");
 }
+ $data = json_decode($json, true)['data'];
+
+ $spotlightAnimes = $data['spotlightAnimes'];
+ $trendingAnimes = $data['trendingAnimes'];
+ $topAiringAnimes = $data['topAiringAnimes'];
+ $mostPopularAnimes = $data['mostPopularAnimes'];
+ $mostFavoriteAnimes = $data['mostFavoriteAnimes'];
+ $latestCompletedAnimes = $data['latestCompletedAnimes'];
+ $latestEpisodeAnimes = $data['latestEpisodeAnimes'];
+ $genres = $data['genres'];
+ $top10Today = $data['top10Animes']['today'];
+ $top10Week = $data['top10Animes']['week'];
+ $top10Month = $data['top10Animes']['month'];
+
+ $currentDate = date('Y-m-d');
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +118,7 @@ for ($i = -1; $i <= 6; $i++) {
                     </div>
                     <div class="clearfix"></div>
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                </div>
+            </div>
             </div>
         </div>
 
@@ -388,7 +394,6 @@ for ($i = -1; $i <= 6; $i++) {
                     </section>
                     <div class="clearfix"></div>
 
-                    <!-- Schedule Section -->
                     <section class="block_area block_area_sidebar block_area-schedule schedule-full">
                         <div class="block_area-header">
                             <div class="float-left bah-heading mr-4">
@@ -425,23 +430,8 @@ for ($i = -1; $i <= 6; $i++) {
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
-                                <ul class="ulclear table_schedule-list limit-8" id="schedule-list">
-                                    <?php foreach ($scheduleData[$currentDate] ?? [] as $anime): ?>
-                                        <li data-timestamp="<?= $anime['airingTimestamp'] ?>" data-id="<?= htmlspecialchars($anime['id']) ?>">
-                                            <a href="/anime/<?= htmlspecialchars($anime['id']) ?>" class="tsl-link">
-                                                <div class="time"><?= htmlspecialchars($anime['time']) ?></div>
-                                                <div class="film-detail">
-                                                    <h3 class="film-name dynamic-name" data-jname="<?= htmlspecialchars($anime['jname']) ?>"><?= htmlspecialchars($anime['name']) ?></h3>
-                                                    <div class="fd-play">
-                                                        <button type="button" class="btn btn-sm btn-play"><i class="fas fa-play mr-2"></i>Episode <?= htmlspecialchars($anime['episode']) ?></button>
-                                                    </div>
-                                                    <span class="airing-status"><span class="countdown" id="countdown-<?= htmlspecialchars($anime['id']) ?>"></span></span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                                <button id="scl-more" class="btn btn-sm btn-block btn-showmore" style="display: <?= count($scheduleData[$currentDate] ?? []) > 7 ? 'block' : 'none' ?>;"></button>
+                                <ul class="ulclear table_schedule-list limit-8" id="schedule-list"></ul>
+                                <button id="scl-more" class="btn btn-sm btn-block btn-showmore" style="display: none;"></button>
                             </div>
                         </div>
                     </section>
@@ -466,7 +456,8 @@ for ($i = -1; $i <= 6; $i++) {
                 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
                 $('#timezone').text(`(${timeZone})`);
 
-                const scheduleData = <?= json_encode($scheduleData) ?>;
+                let scheduleCache = {};
+                let currentScheduleDate = '<?= $currentDate ?>';
 
                 const scheduleSw = new Swiper('#schedule-swiper', {
                     slidesPerView: 7,
@@ -486,9 +477,22 @@ for ($i = -1; $i <= 6; $i++) {
                     },
                 });
 
-                $('.day-item').click(function() {
-                    const date = $(this).data('date');
-                    const animes = scheduleData[date] || [];
+                async function loadSchedule(date) {
+                    if (scheduleCache[date]) {
+                        renderSchedule(scheduleCache[date]);
+                        return;
+                    }
+                    try {
+                        const response = await fetch(`<?= $websiteUrl ?>/api/schedule.php?date=${date}`);
+                        const data = await response.json();
+                        scheduleCache[date] = data;
+                        renderSchedule(data);
+                    } catch (error) {
+                        $('#schedule-list').html('');
+                    }
+                }
+
+                function renderSchedule(animes) {
                     let html = '';
                     animes.forEach(anime => {
                         html += `
@@ -508,9 +512,17 @@ for ($i = -1; $i <= 6; $i++) {
                     });
                     $('#schedule-list').html(html);
                     $('#scl-more').toggle(animes.length > 7);
+                    updateCountdowns();
+                }
+
+                loadSchedule(currentScheduleDate);
+
+                $('.day-item').click(function() {
+                    const date = $(this).data('date');
+                    currentScheduleDate = date;
                     $('.tsd-item').removeClass('active');
                     $(this).find('.tsd-item').addClass('active');
-                    updateCountdowns();
+                    loadSchedule(date);
                 });
 
                 $("#scl-more").click(function() {

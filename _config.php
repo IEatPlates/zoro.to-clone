@@ -3,15 +3,15 @@ $conn = mysqli_connect("localhost", 'root' , '', "anime") or die("Connection fai
 
 
 $websiteTitle = "Zoro";
-$websiteUrl = "//{$_SERVER['SERVER_NAME']}";
+$websiteUrl = "//{$_SERVER['SERVER_NAME']}/zoro";
 $websiteLogo = $websiteUrl . "/files/images/logo_zoro.png";
 $contactEmail = "@gmail.com";
 
 $version = "0.2";
 
-$discord = "https://dsc.gg/kirixen";
-$github = "https://github.com/kirixen";
-$twitter = "https://x.com/KiriX3n";
+$discord = "https://dsc.gg/sailorsammyy";
+$github = "https://github.com/sailorsammyy";
+$twitter = "https://x.com/sailorsammyy";
  
 $disqus = "https://.disqus.com/embed.js";
 $api = ""; 
