@@ -1,6 +1,13 @@
 <?php 
-$conn = mysqli_connect("localhost", 'root' , '', "anime") or die("Connection fail");
-
+$url = "mysql://root:GONdrHmOajznwzNpzZXeyQIHkVYWisOv@turntable.proxy.rlwy.net:33297/railway";
+$dbParts = parse_url($url);
+$conn = mysqli_connect(
+    $dbParts['host'],
+    $dbParts['user'],
+    $dbParts['pass'],
+    ltrim($dbParts['path'], '/'), // Remove leading slash from db name
+    $dbParts['port']
+);
 
 $websiteTitle = "Zoro";
 $websiteUrl = "//{$_SERVER['SERVER_NAME']}/api";
