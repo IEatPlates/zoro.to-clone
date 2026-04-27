@@ -3,9 +3,9 @@ $conn = mysqli_connect("localhost", 'root' , '', "anime") or die("Connection fai
 
 
 $websiteTitle = "Zoro";
-$websiteUrl = "//{$_SERVER['SERVER_NAME']}/app";
+$websiteUrl = "//{$_SERVER['SERVER_NAME']}/api";
 $websiteUri = "//{$_SERVER['SERVER_NAME']}/uhm";
-$websiteLogo = $websiteUrl . "/files/images/logo_zoro.png";
+$websiteLogo = $websiteUri . "/files/images/logo_zoro.png";
 $contactEmail = "@gmail.com";
 
 $version = "0.2";
