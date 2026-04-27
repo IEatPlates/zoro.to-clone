@@ -1,5 +1,5 @@
 <?php
-require('./_config.php');
+require('_config.php');
 session_start();
 
  $parts = parse_url($_SERVER['REQUEST_URI']);
@@ -103,7 +103,7 @@ if (isset($_GET['lang']) && $_GET['lang'] === 'dub') {
 <body data-page="movie_watch">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="movie_watch">
-        <?php include('./_php/header.php'); ?>
+        <?php include('_php/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper" date-page="movie_watch" data-id="">
             <div id="ani_detail">
@@ -314,18 +314,18 @@ if (isset($_GET['lang']) && $_GET['lang'] === 'dub') {
                             <div class="clearfix"></div>
                         </div>
                         <div class="tab-content">
-                            <?php include('./_php/disqus.php'); ?>
+                            <?php include('_php/disqus.php'); ?>
                         </div>
                     </section>
 
-                    <?php include('./_php/recent-releases.php'); ?>
+                    <?php include('_php/recent-releases.php'); ?>
                     <div class="clearfix"></div>
                 </div>
-                <?php include('./_php/sidenav.php'); ?>
+                <?php include('_php/sidenav.php'); ?>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('./_php/footer.php'); ?>
+        <?php include('_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?=$version?>"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js?v=<?=$version?>"></script>

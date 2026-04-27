@@ -3,7 +3,8 @@ $conn = mysqli_connect("localhost", 'root' , '', "anime") or die("Connection fai
 
 
 $websiteTitle = "Zoro";
-$websiteUrl = "//{$_SERVER['SERVER_NAME']}/zoro";
+$websiteUrl = "//{$_SERVER['SERVER_NAME']}/app";
+$websiteUri = "//{$_SERVER['SERVER_NAME']}/uhm";
 $websiteLogo = $websiteUrl . "/files/images/logo_zoro.png";
 $contactEmail = "@gmail.com";
 
@@ -14,7 +15,7 @@ $github = "https://github.com/sailorsammyy";
 $twitter = "https://x.com/sailorsammyy";
  
 $disqus = "https://.disqus.com/embed.js";
-$api = ""; 
+$api = "https://aniwatch-api-v1-0.onrender.com"; 
 
 $banner = $websiteUrl . "/files/images/banner.png";
 ?>

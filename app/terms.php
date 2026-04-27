@@ -1,5 +1,5 @@
 <?php 
-include("./_config.php"); 
+include("_config.php"); 
 session_start();
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ session_start();
     <div id="sidebar_menu_bg"></div>
 
     <div id="wrapper">
-        <?php include("./_php/header.php"); ?>
+        <?php include("_php/header.php"); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper" class="layout-page layout-page-infor">
             <div class="information_page">
@@ -156,7 +156,7 @@ session_start();
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('./_php/footer.php'); ?>
+        <?php include('_php/footer.php'); ?>
     </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         

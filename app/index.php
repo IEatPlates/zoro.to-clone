@@ -1,5 +1,5 @@
 <?php
-require('./_config.php');
+require('_config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,11 +38,11 @@ require('./_config.php');
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css?v=<?= $version ?>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?v=<?= $version ?>">
     <link rel="stylesheet" href="<?= $websiteUrl ?>/files/css/home.css?v=<?= $version ?>">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="manifest.json">
 </head>
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js');
+        navigator.serviceWorker.register('sw.js');
     };
 </script>
 

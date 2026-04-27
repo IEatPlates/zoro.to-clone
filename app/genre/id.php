@@ -49,9 +49,9 @@ if (!isset($_GET['page'])) {
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $websiteUrl; ?>/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $websiteUrl; ?>/favicon-16x16.png">
     <link rel="mask-icon" href="<?php echo $websiteUrl; ?>/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="icon" sizes="192x192" href="<?php echo $websiteUrl; ?>/files/images/touch-icon-192x192.png?v=<?php echo $version; ?>">
-    <link rel="stylesheet" href="<?php echo $websiteUrl; ?>/files/css/style.css?v=<?php echo $version; ?>">
-    <link rel="stylesheet" href="<?php echo $websiteUrl; ?>/files/css/min.css?v=<?php echo $version; ?>">
+    <link rel="icon" sizes="192x192" href="<?php echo $websiteUri; ?>/files/images/touch-icon-192x192.png?v=<?php echo $version; ?>">
+    <link rel="stylesheet" href="<?php echo $websiteUri; ?>/files/css/style.css?v=<?php echo $version; ?>">
+    <link rel="stylesheet" href="<?php echo $websiteUri; ?>/files/css/min.css?v=<?php echo $version; ?>">
     <script type="text/javascript">
         setTimeout(function () {
             var wpse326013 = document.createElement('link');
@@ -111,7 +111,7 @@ if (!isset($_GET['page'])) {
                                                 </div>
                                                 <img class="film-poster-img lazyload"
                                                     data-src="<?php echo $anime['poster']; ?>"
-                                                    src="<?php echo $websiteUrl; ?>/files/images/no_poster.jpg"
+                                                    src="<?php echo $websiteUri; ?>/files/images/no_poster.jpg"
                                                     alt="<?php echo htmlspecialchars($anime['name']); ?>">
                                                 <a class="film-poster-ahref"
                                                     href="/anime/<?php echo $anime['id']; ?>"
@@ -203,12 +203,12 @@ if (!isset($_GET['page'])) {
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?php echo $websiteUrl; ?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/app.js"></script>
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/comman.js"></script>
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/movie.js"></script>
+        <link rel="stylesheet" href="<?php echo $websiteUri; ?>/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/function.js"></script>
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/function.js"></script>
         <div style="display:none;"></div>
     </div>
 </body>

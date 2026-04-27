@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require('./_config.php');
+require('_config.php');
 
  $apiHome = "$api/api/v2/hianime/home";
  $context = stream_context_create([
@@ -105,12 +105,12 @@ if ($json === false) {
 <body data-page="page_home">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('./_php/header.php');?>
+        <?php include('_php/header.php');?>
         <div class="clearfix"></div>
         <div class="deslide-wrap">
             <div class="container" style="max-width:100%!important;width:100%!important;">
                 <div id="slider" class="swiper-container-initialized swiper-container-horizontal">
-                    <?php include('./_php/slidebar.php'); ?>
+                    <?php include('_php/slidebar.php'); ?>
                     <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div>
                     <div class="swiper-navigation">
                         <div class="swiper-button swiper-button-next" tabindex="0" role="button" aria-label="Next slide"><i class="fas fa-angle-right"></i></div>
@@ -122,7 +122,7 @@ if ($json === false) {
             </div>
         </div>
 
-        <?php include('./_php/trending.php')?>
+        <?php include('_php/trending.php')?>
         <div class="share-buttons share-buttons-home">
             <div class="container">
                 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>
@@ -436,11 +436,11 @@ if ($json === false) {
                         </div>
                     </section>
                 </div>
-                <?php include('./_php/sidenav.php'); ?>
+                <?php include('_php/sidenav.php'); ?>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('./_php/footer.php'); ?>
+        <?php include('_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

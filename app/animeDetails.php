@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('./_config.php');
+require_once('_config.php');
 $parts = parse_url($_SERVER['REQUEST_URI']); 
 $page_url = explode('/', $parts['path']);
 $animeId = $page_url[count($page_url)-1];
@@ -58,9 +58,9 @@ if (!empty($episodesList)) {
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $websiteUrl; ?>/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $websiteUrl; ?>/favicon-16x16.png">
     <link rel="mask-icon" href="<?php echo $websiteUrl; ?>/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="icon" sizes="192x192" href="<?php echo $websiteUrl; ?>/files/images/touch-icon-192x192.png?v=<?php echo $version; ?>">
-    <link rel="stylesheet" href="<?php echo $websiteUrl; ?>/files/css/style.css?v=<?php echo $version; ?>">
-    <link rel="stylesheet" href="<?php echo $websiteUrl; ?>/files/css/min.css?v=<?php echo $version; ?>">
+    <link rel="icon" sizes="192x192" href="<?php echo $websiteUri; ?>/files/images/touch-icon-192x192.png?v=<?php echo $version; ?>">
+    <link rel="stylesheet" href="<?php echo $websiteUri; ?>/files/css/style.css?v=<?php echo $version; ?>">
+    <link rel="stylesheet" href="<?php echo $websiteUri; ?>/files/css/min.css?v=<?php echo $version; ?>">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>
     <script type="text/javascript">
         setTimeout(function () {
@@ -87,7 +87,7 @@ if (!empty($episodesList)) {
 <body data-page="movie_info">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('./_php/header.php'); ?>
+        <?php include('_php/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper" date-page="movie_info" data-id="<?php echo $animeId; ?>">
             <div id="ani_detail">
@@ -100,7 +100,7 @@ if (!empty($episodesList)) {
                         <div class="anis-content">
                             <div class="anisc-poster">
                                 <div class="film-poster">
-                                    <img src="<?php echo $websiteUrl; ?>/files/images/no_poster.jpg"
+                                    <img src="<?php echo $websiteUri; ?>/files/images/no_poster.jpg"
                                         data-src="<?php echo $animeInfo['poster']; ?>"
                                         class="lazyload film-poster-img">
                                 </div>
@@ -161,7 +161,7 @@ if (!empty($episodesList)) {
                                                 let btn = document.querySelector('#addToList');
                                                 btn.addEventListener("click", () => {
                                                     let btnValue = btn.getAttribute('animeId');
-                                                    $.post('../user/ajax/watchlist.php', {
+                                                    $.post('.user/ajax/watchlist.php', {
                                                         btnValue: btnValue
                                                     }, (response) => {
                                                         btn.innerHTML = response;
@@ -175,7 +175,7 @@ if (!empty($episodesList)) {
                                                 let btn = document.querySelector('#addToList');
                                                 btn.addEventListener("click", () => {
                                                     let btnValue = btn.getAttribute('animeId');
-                                                    $.post('../user/ajax/watchlist.php', {
+                                                    $.post('.user/ajax/watchlist.php', {
                                                         btnValue: btnValue
                                                     }, (response) => {
                                                         btn.innerHTML = response;
@@ -248,24 +248,24 @@ if (!empty($episodesList)) {
             
             <div class="container">
                 <div id="main-content">
-                    <?php include('./_php/recent-releases.php'); ?>
+                    <?php include('_php/recent-releases.php'); ?>
                     <div class="clearfix"></div>
                 </div>
-                <?php include('./_php/sidenav.php'); ?>
+                <?php include('_php/sidenav.php'); ?>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('./_php/footer.php'); ?>
+        <?php include('_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?php echo $websiteUrl; ?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/app.js"></script>
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/comman.js"></script>
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/movie.js"></script>
+        <link rel="stylesheet" href="<?php echo $websiteUri; ?>/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?php echo $websiteUrl; ?>/files/js/function.js"></script>
+        <script type="text/javascript" src="<?php echo $websiteUri; ?>/files/js/function.js"></script>
     </div>
 </body>
 </html>

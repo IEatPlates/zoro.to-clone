@@ -1,5 +1,5 @@
 <?php 
-require('./_config.php'); 
+require('_config.php'); 
 session_start();
 
  $keyword = $_GET['keyword'] ?? '';
@@ -85,7 +85,7 @@ if (isset($results['data']['animes'])) {
 <body data-page="page_anime">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('./_php/header.php'); ?>
+        <?php include('_php/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper">
             <div class="container">
@@ -318,11 +318,11 @@ if (isset($results['data']['animes'])) {
                     </section>
                     <div class="clearfix"></div>
                 </div>
-                <?php include('./_php/sidenav.php'); ?>
+                <?php include('_php/sidenav.php'); ?>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('./_php/footer.php'); ?>
+        <?php include('_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?= $version ?>"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js?v=<?= $version ?>"></script>

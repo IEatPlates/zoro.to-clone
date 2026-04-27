@@ -1,5 +1,5 @@
 <?php
-include('./_config.php');
+include('_config.php');
 if(isset($_POST['type']) && $_POST['type']!='' && isset($_POST['id']) && $_POST['id']>0){
 	$type=mysqli_real_escape_string($conn,$_POST['type']);
 	$id=mysqli_real_escape_string($conn,$_POST['id']);
