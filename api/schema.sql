@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `pageview`
 --
-
 CREATE TABLE `pageview` (
   `id` int(255) NOT NULL,
   `pageID` varchar(250) NOT NULL,

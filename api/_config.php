@@ -1,5 +1,5 @@
 <?php 
-$url = "mysql://root:GONdrHmOajznwzNpzZXeyQIHkVYWisOv@turntable.proxy.rlwy.net:33297/railway";
+$url = "mysql://root:mdmsQvWiuXBCDFdodPXdlyDebEhKrlTy@mysql.railway.internal:3306/railway";
 $dbParts = parse_url($url);
 $conn = mysqli_connect(
     $dbParts['host'],
