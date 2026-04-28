@@ -11,7 +11,7 @@ $conn = mysqli_connect(
 
 $websiteTitle = "Zoro";
 $websiteUrl = "//zoro-to-clone-oj85.vercel.app/api";
-$websiteUri = "//zoro-to-clone-oj85.vercel.app/uhm";
+$websiteUri = "//zoro-to-clone-oj85.vercel.app/yup";
 $websiteLogo = $websiteUri . "/files/images/logo_zoro.png";
 $contactEmail = "@gmail.com";
 
