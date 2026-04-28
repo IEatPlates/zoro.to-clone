@@ -42,10 +42,10 @@ if(isset($_COOKIE['userID'])){
     <link rel="icon" type="image/png" sizes="32x32" href="<?=$websiteUrl?>/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?=$websiteUrl?>/favicon-16x16.png">
     <link rel="mask-icon" href="<?=$websiteUrl?>/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="icon" sizes="192x192" href="<?=$websiteUrl?>/files/images/touch-icon-192x192.png?v=<?=$version?>">
-  <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css?v=<?=$version?>">
+    <link rel="icon" sizes="192x192" href="<?=$websiteUri?>/files/images/touch-icon-192x192.png?v=<?=$version?>">
+  <link rel="stylesheet" href="<?=$websiteUri?>/files/css/style.css?v=<?=$version?>">
     
-  <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css?v=<?=$version?>">
+  <link rel="stylesheet" href="<?=$websiteUri?>/files/css/min.css?v=<?=$version?>">
   <style>
     .modal-backdrop {
       background-color: rgba(0, 0, 0, 0.85) !important;
@@ -414,12 +414,12 @@ if(isset($_COOKIE['userID'])){
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js?v=<?=$version?>"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js?v=<?=$version?>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js.Cookies@rc/dist/js.cookie.min.js"></script>
-    <script type="text/javascript" src="<?=$websiteUrl?>/files/js/app.js?v=<?=$version?>"></script>
-    <script type="text/javascript" src="<?=$websiteUrl?>/files/js/comman.js?v=<?=$version?>"></script>
-    <script type="text/javascript" src="<?=$websiteUrl?>/files/js/movie.js?v=<?=$version?>"></script>
-    <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/jquery-ui.css?v=<?=$version?>">
+    <script type="text/javascript" src="<?=$websiteUri?>/files/js/app.js?v=<?=$version?>"></script>
+    <script type="text/javascript" src="<?=$websiteUri?>/files/js/comman.js?v=<?=$version?>"></script>
+    <script type="text/javascript" src="<?=$websiteUri?>/files/js/movie.js?v=<?=$version?>"></script>
+    <link rel="stylesheet" href="<?=$websiteUri?>/files/css/jquery-ui.css?v=<?=$version?>">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js?v=<?=$version?>"></script>
-    <script type="text/javascript" src="<?=$websiteUrl?>/files/js/function.js?v=<?=$version?>"></script>
+    <script type="text/javascript" src="<?=$websiteUri?>/files/js/function.js?v=<?=$version?>"></script>
     
     <script>
       $(document).ready(function() {
@@ -434,14 +434,14 @@ if(isset($_COOKIE['userID'])){
         
         function updateAvatar(selectedAvatar) {
           if (selectedAvatar) {
-            $('#preview-avatar').attr('src', '<?=$websiteUrl?>/files/avatar/' + selectedAvatar);
+            $('#preview-avatar').attr('src', '<?=$websiteUri?>/files/avatar/' + selectedAvatar);
             
             $.ajax({
               type: 'POST',
               url: 'update_avatar.php',
               data: { avatar: selectedAvatar, user_id: '<?=$user_id?>' },
               success: function(response) {
-                $('.profile-header-cover').css('background-image', 'url(<?=$websiteUrl?>/files/avatar/' + selectedAvatar + ')');
+                $('.profile-header-cover').css('background-image', 'url(<?=$websiteUri?>/files/avatar/' + selectedAvatar + ')');
                 
                 setTimeout(function() {
                   $('#modalavatars').modal('hide');

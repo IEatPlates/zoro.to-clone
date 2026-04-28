@@ -27,9 +27,9 @@ session_start();
     <link rel="icon" type="image/png" sizes="32x32" href="<?=$websiteUrl?>/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?=$websiteUrl?>/favicon-16x16.png">
     <link rel="mask-icon" href="<?=$websiteUrl?>/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="icon" sizes="192x192" href="<?=$websiteUrl?>/files/images/touch-icon-192x192.png?v=<?=$version?>">
-    <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css?v=<?=$version?>">
-    <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css?v=<?=$version?>">
+    <link rel="icon" sizes="192x192" href="<?=$websiteUri?>/files/images/touch-icon-192x192.png?v=<?=$version?>">
+    <link rel="stylesheet" href="<?=$websiteUri?>/files/css/style.css?v=<?=$version?>">
+    <link rel="stylesheet" href="<?=$websiteUri?>/files/css/min.css?v=<?=$version?>">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>
     <script type="text/javascript">
         setTimeout(function () {
@@ -162,12 +162,12 @@ session_start();
         
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="<?=$websiteUri?>/files/js/app.js"></script>
+        <script type="text/javascript" src="<?=$websiteUri?>/files/js/comman.js"></script>
+        <script type="text/javascript" src="<?=$websiteUri?>/files/js/movie.js"></script>
+        <link rel="stylesheet" href="<?=$websiteUri?>/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/function.js"></script>
+        <script type="text/javascript" src="<?=$websiteUri?>/files/js/function.js"></script>
 
 </body>
 
