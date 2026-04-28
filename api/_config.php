@@ -22,7 +22,7 @@ $github = "https://github.com/sailorsammyy";
 $twitter = "https://x.com/sailorsammyy";
  
 $disqus = "https://.disqus.com/embed.js";
-$api = "https://hianime-api-two-alpha.vercel.app"; 
+$api = "https://coolanimeapi.vercel.app"; 
 
 $banner = $websiteUrl . "/files/images/banner.png";
 ?>
