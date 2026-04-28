@@ -10,8 +10,8 @@ $conn = mysqli_connect(
 );
 
 $websiteTitle = "Zoro";
-$websiteUrl = "//{$_SERVER['SERVER_NAME']}/api";
-$websiteUri = "//{$_SERVER['SERVER_NAME']}/uhm";
+$websiteUrl = "//zoro-to-clone-oj85.vercel.app/api";
+$websiteUri = "//zoro-to-clone-oj85.vercel.app/uhm";
 $websiteLogo = $websiteUri . "/files/images/logo_zoro.png";
 $contactEmail = "@gmail.com";
 
