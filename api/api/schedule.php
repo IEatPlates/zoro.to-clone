@@ -19,7 +19,7 @@ if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTime) {
     exit;
 }
 
- $apiUrl = "$api/api/v2/hianime/schedule?date={$date}";
+ $apiUrl = "$api/api/v2/animekai/schedule?date={$date}";
  $context = stream_context_create([
     'http' => [
         'timeout' => 8,

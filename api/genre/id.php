@@ -94,7 +94,7 @@ if (!isset($_GET['page'])) {
                             <div class="block_area-content block_area-list film_list film_list-grid film_list-wfeature">
                                 <div class="film_list-wrap">
                                 <?php 
-                                $apiUrl = "https://aniwatch-api1-two.vercel.app/api/v2/hianime/genre/{$genre}?page={$page}";
+                                $apiUrl = "https://shirayuki-scrapper-api-v2.vercel.app/api/v2/animekai/genre/{$genre}?page={$page}";
                                 $json = file_get_contents($apiUrl);
                                 $json = json_decode($json, true);
                                 

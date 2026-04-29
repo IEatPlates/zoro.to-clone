@@ -9,7 +9,7 @@
         <div class="block_area-content block_area-list film_list film_list-grid film_list-wfeature">
             <div class="film_list-wrap">
                 <?php 
-                $json = file_get_contents("$api/api/v2/hianime/home");
+                $json = file_get_contents("$api/api/v2/animekai/home");
                 $json = json_decode($json, true);
                 $latestEpisodeAnimes = $json['data']['latestEpisodeAnimes'];
                 

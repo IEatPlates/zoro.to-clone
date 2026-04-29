@@ -6,7 +6,7 @@ require('../_config.php');
  $category = $_GET['category'] ?? 'sub';
 
 // Get episode sources from the API
- $json = file_get_contents("https://aniwatch-api1-two.vercel.app/api/v2/hianime/episode/sources?animeEpisodeId={$episodeId}&server={$server}&category={$category}");
+ $json = file_get_contents("https://shirayuki-scrapper-api-v2.vercel.app/api/v2/animekai/episode/sources?animeEpisodeId={$episodeId}&server={$server}&category={$category}");
  $data = json_decode($json, true);
 
 // Check if we got valid data

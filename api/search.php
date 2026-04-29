@@ -7,7 +7,7 @@ session_start();
  $keyword = str_replace(' ', '%20', $keyword);
  $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
- $apiUrl = "$api/api/v2/hianime/search?q=$keyword&page=$page";
+ $apiUrl = "$api/api/v2/animekai/search?q=$keyword&page=$page";
  $json = file_get_contents($apiUrl);
  $results = json_decode($json, true);
 

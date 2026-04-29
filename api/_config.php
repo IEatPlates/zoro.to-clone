@@ -22,7 +22,7 @@ $github = "https://github.com/sailorsammyy";
 $twitter = "https://x.com/sailorsammyy";
  
 $disqus = "https://.disqus.com/embed.js";
-$api = "https://aniwatch-api-i02m.onrender.com"; 
+$api = "https://shirayuki-scrapper-api-v2.vercel.app"; 
 
 $banner = $websiteUrl . "/files/images/banner.png";
 ?>

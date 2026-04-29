@@ -23,7 +23,7 @@ if(isset($query['id'])){
     
     echo " &nbsp;<i class='fas fa-plus mr-2'></i>&nbsp;Add to List&nbsp;";
 }else{
-    $getAnime = file_get_contents("$api/api/v2/hianime/anime/{$animeID}");
+    $getAnime = file_get_contents("$api/api/v2/animekai/anime/{$animeID}");
     $getAnime = json_decode($getAnime, true);
     
     $animeInfo = $getAnime['data']['anime']['info'] ?? [];

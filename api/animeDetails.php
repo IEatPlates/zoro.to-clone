@@ -5,12 +5,12 @@ $parts = parse_url($_SERVER['REQUEST_URI']);
 $page_url = explode('/', $parts['path']);
 $animeId = $page_url[count($page_url)-1];
 
-$getAnime = file_get_contents("$api/api/v2/hianime/anime/{$animeId}");
+$getAnime = file_get_contents("$api/api/v2/animekai/anime/{$animeId}");
 $getAnime = json_decode($getAnime, true);
 $animeInfo = $getAnime['data']['anime']['info'] ?? [];
 $animeMoreInfo = $getAnime['data']['anime']['moreInfo'] ?? [];
 
-$getEpisodes = file_get_contents("$api/api/v2/hianime/anime/{$animeId}/episodes");
+$getEpisodes = file_get_contents("$api/api/v2/animekai/anime/{$animeId}/episodes");
 $getEpisodes = json_decode($getEpisodes, true);
 $episodesList = $getEpisodes['data']['episodes'] ?? [];
 $firstEpisodeId = '';

@@ -10,7 +10,7 @@ parse_str($parts['query'] ?? '', $query);
  $episodeNum = $query['ep'] ?? '';
  $animeId = $url;
 
- $getAnime = file_get_contents("$api/api/v2/hianime/anime/{$animeId}");
+ $getAnime = file_get_contents("$api/api/v2/animekai/anime/{$animeId}");
  $getAnime = json_decode($getAnime, true);
 
 if (!isset($getAnime['data']['anime']['info'])) {
@@ -21,7 +21,7 @@ if (!isset($getAnime['data']['anime']['info'])) {
  $animeInfo = $getAnime['data']['anime']['info'];
  $animeMoreInfo = $getAnime['data']['anime']['moreInfo'];
 
- $getEpisodes = file_get_contents("$api/api/v2/hianime/anime/{$animeId}/episodes");
+ $getEpisodes = file_get_contents("$api/api/v2/animekai/anime/{$animeId}/episodes");
  $getEpisodes = json_decode($getEpisodes, true);
  $episodesList = $getEpisodes['data']['episodes'] ?? [];
 
