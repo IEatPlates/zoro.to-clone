@@ -22,7 +22,7 @@ $github = "https://github.com/sailorsammyy";
 $twitter = "https://x.com/sailorsammyy";
  
 $disqus = "https://.disqus.com/embed.js";
-$api = "https://coolanimeapi.vercel.app"; 
+$api = "https://aniwatch-api-i02m.onrender.com"; 
 
 $banner = $websiteUrl . "/files/images/banner.png";
 ?>
