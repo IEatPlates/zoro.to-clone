@@ -2,7 +2,7 @@
 session_start();
 require('_config.php');
 
- $apiHome = "$api/api/v2/hianime/home/";
+ $apiHome = "$api/api/v2/hianime/home";
  $context = stream_context_create([
     'http' => [
         'timeout' => 10,
