@@ -16,17 +16,15 @@ if ($json === false) {
 }
  $data = json_decode($json, true)['data'];
 
- $spotlightAnimes = $data['spotlightAnimes'];
- $trendingAnimes = $data['trendingAnimes'];
- $topAiringAnimes = $data['topAiringAnimes'];
- $mostPopularAnimes = $data['mostPopularAnimes'];
- $mostFavoriteAnimes = $data['mostFavoriteAnimes'];
- $latestCompletedAnimes = $data['latestCompletedAnimes'];
- $latestEpisodeAnimes = $data['latestEpisodeAnimes'];
+ $spotlightAnimes = $data['newReleases'];
+ $trendingAnimes = $data['topTrending'];
+ $topAiringAnimes = $data['featuredAnimes'];
+ $latestCompletedAnimes = $data['completed'];
+ $latestEpisodeAnimes = $data['latestUpdates'];
  $genres = $data['genres'];
- $top10Today = $data['top10Animes']['today'];
- $top10Week = $data['top10Animes']['week'];
- $top10Month = $data['top10Animes']['month'];
+ $top10Today = $data['day'];
+ $top10Week = $data['week'];
+ $top10Month = $data['month'];
 
  $currentDate = date('Y-m-d');
 ?>
